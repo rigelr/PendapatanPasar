@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     private var btn: Button? = null
     private var imageview: ImageView? = null
+    private var btn2: Button? = null
+    private var imageview2: ImageView? = null
     private val GALLERY = 1
     private val CAMERA = 2
 
@@ -40,8 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         btn = findViewById<View>(R.id.btnCamera) as Button
         imageview = findViewById<View>(R.id.iv) as ImageView
+        btn2 = findViewById<View>(R.id.btnCamera2) as Button
+        imageview2 = findViewById<View>(R.id.iv2) as ImageView
 
         btn!!.setOnClickListener { showPictureDialog() }
+        btn2!!.setOnClickListener { showPictureDialog() }
 
     }
 
@@ -103,10 +108,12 @@ return
         {
             val thumbnail = data!!.extras!!.get("data") as Bitmap
             imageview!!.setImageBitmap(thumbnail)
+            imageview2!!.setImageBitmap(thumbnail)
             saveImage(thumbnail)
             Toast.makeText(this@MainActivity, "Image Saved!", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     fun saveImage(myBitmap: Bitmap):String {
         val bytes = ByteArrayOutputStream()
