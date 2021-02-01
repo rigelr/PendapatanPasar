@@ -1,15 +1,15 @@
 package id.ac.polinema.pendapatanpasar.login
 
-import Pasar
+import ResultLogin
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.ac.polinema.pendapatanpasar.MainActivity
 import id.ac.polinema.pendapatanpasar.R
+import id.ac.polinema.pendapatanpasar.MainActivity
 import id.ac.polinema.pendapatanpasar.login.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -25,17 +25,18 @@ class LoginActivity : AppCompatActivity() {
             val password = loginPassword.text.toString()
             presenter.login(username, password)
         }
-
     }
 
-    fun onSuccessLogin(msg: String?, data: Pasar?) {
+    fun onSuccessLogin(data: ResultLogin?) {
         alert {
             title = "Information"
             message = "Login Success"
         }.show()
-        startActivity<MainActivity>()
-        finish()
-
+        Intent(this, MainActivity::class.java).apply {
+            putExtra("DATA_MAIN", data)
+            startActivity(this)
+            finish()
+        }
     }
 
      fun onFailedLogin(msg: String?){
@@ -44,5 +45,4 @@ class LoginActivity : AppCompatActivity() {
             message = "Login Failed Silahkan Cek Email Password"
         }.show()
     }
-
 }

@@ -1,6 +1,8 @@
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class Pasar(
     @field:SerializedName("nama_pasar")
     val pasarNama: String? = null,
@@ -16,4 +18,16 @@ data class Pasar(
     val pasarUsername: String? = null,
     @field:SerializedName("password")
     val pasarPassword: String? = null
-)
+): Parcelable
+
+@Parcelize
+data class Pendapatan(
+    @SerializedName("id_pendapatan")
+    val id: Int,
+    val target: Int,
+    val tanggal: String,
+    val realisasi: Int,
+    @SerializedName("bukti_setor")
+    val buktiSetor: String,
+    val status: Int
+): Parcelable
