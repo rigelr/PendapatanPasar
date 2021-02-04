@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
                         if (it) "Berhasil menyimpan data"
                         else "Terjadi kesalahan saat menyimpan data"
 
+                    edtRealisasi.setText("")
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
                 }
             } else {

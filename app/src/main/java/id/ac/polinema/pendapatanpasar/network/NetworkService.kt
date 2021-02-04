@@ -22,7 +22,7 @@ interface NetworkService {
     @POST("updatePendapatan")
     fun updateRealisasi(
         @Part("id_pendapatan") id: Int,
-        @Part("id_pendapatan") relasasi: Int,
+        @Part("realisasi") relasasi: Int,
         @Part bukti: MultipartBody.Part,
         @Part sts: MultipartBody.Part
     ): Call<Response<Boolean>>
