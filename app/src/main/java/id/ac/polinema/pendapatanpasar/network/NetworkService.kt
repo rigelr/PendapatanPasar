@@ -16,7 +16,8 @@ interface NetworkService {
 
     @FormUrlEncoded
     @GET("getDataPendapatan")
-    fun getDataPendapatan(@Field("id") id: Int): Call<ResponseList<Pendapatan>>
+    fun getDataPendapatan(@Field("id") id: Int,
+                          @Field("nama_pasar")nama_pasar: String): Call<ResponseList<Pendapatan>>
 
     @Multipart
     @POST("updatePendapatan")

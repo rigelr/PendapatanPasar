@@ -20,7 +20,7 @@ object NetworkConfig {
 
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://172.17.0.1/kuliah/pkl/index.php/ServerApi/")
+            .baseUrl("http://192.168.1.104:8080/server_pendapatanPKL/index.php/ServerApi/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
