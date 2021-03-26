@@ -11,13 +11,17 @@ import retrofit2.http.*
 interface NetworkService {
     @FormUrlEncoded
     @POST("loginStaff")
-    fun login(@Field("username") username : String?,
-              @Field("password") password: String?) : Call<ResultLogin>
+    fun login(
+        @Field("username") username : String?,
+        @Field("password") password: String?
+    ) : Call<ResultLogin>
 
     @FormUrlEncoded
     @GET("getDataPendapatan")
-    fun getDataPendapatan(@Field("id") id: Int,
-                          @Field("nama_pasar")nama_pasar: String): Call<ResponseList<Pendapatan>>
+    fun getDataPendapatan(
+        @Field("id") id: Int,
+        @Field("nama_pasar") nama_pasar: String
+    ): Call<ResponseList<Pendapatan>>
 
     @Multipart
     @POST("updatePendapatan")

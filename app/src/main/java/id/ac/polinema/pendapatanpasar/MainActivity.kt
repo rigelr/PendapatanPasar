@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
             btn2 = findViewById<View>(R.id.btnCamera2) as Button
             imageview2 = findViewById<View>(R.id.iv2) as ImageView
 
+            tvNamaPasar.setText(datas.pasar?.pasarNama ?: "Pasar Tradisional")
             btn!!.setOnClickListener {
                 AlertDialog.Builder(this)
                     .chooseAction(this, INPUT_BUKTI_SETOR)
@@ -106,6 +107,8 @@ class MainActivity : AppCompatActivity() {
 
                     edtRealisasi.setText("")
                     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+
+                    finish()
                 }
             } else {
                 message = "Mohon lengkapi semua data"

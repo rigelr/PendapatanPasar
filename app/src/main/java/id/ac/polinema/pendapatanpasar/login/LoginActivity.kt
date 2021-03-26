@@ -4,6 +4,7 @@ import ResultLogin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import id.ac.polinema.pendapatanpasar.R
 import id.ac.polinema.pendapatanpasar.MainActivity
 import id.ac.polinema.pendapatanpasar.login.presenter.LoginPresenter
@@ -28,14 +29,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onSuccessLogin(data: ResultLogin?) {
-        alert {
-            title = "Information"
-            message = "Login Success"
-        }.show()
+        Toast.makeText(this, "Berhasil Login", Toast.LENGTH_SHORT).show()
         Intent(this, MainActivity::class.java).apply {
             putExtra("DATA_MAIN", data)
             startActivity(this)
-            finish()
         }
     }
 

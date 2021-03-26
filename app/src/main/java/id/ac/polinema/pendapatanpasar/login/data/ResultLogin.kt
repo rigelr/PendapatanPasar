@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ResultLogin(
-    @SerializedName("pasar")
+    @SerializedName("staff")
     val pasar: Pasar? = null,
     val pendapatan: List<Pendapatan> = emptyList(),
     @field:SerializedName("message")
